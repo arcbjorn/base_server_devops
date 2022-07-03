@@ -20,5 +20,4 @@ services:
       # - $PWD/acme.json:/acme.json
 
     networks:
-      frontend:
-        name: frontend
+      - frontend
