@@ -18,5 +18,7 @@ services:
       - $PWD/traefik.toml:/etc/traefik/traefik.toml
       - $PWD/traefik_dynamic.toml:/etc/traefik/traefik_dynamic.toml
       # - $PWD/acme.json:/acme.json
+
     networks:
-      - web
+      frontend:
+        name: frontend
