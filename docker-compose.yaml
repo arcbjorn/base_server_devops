@@ -15,8 +15,8 @@ services:
       # So that Traefik can listen to the Docker events
       - /var/run/docker.sock:/var/run/docker.sock
 
-      - $PWD/traefik.toml:/etc/traefik/traefik.toml
-      - $PWD/traefik_dynamic.toml:/etc/traefik/traefik_dynamic.toml
+      - root/base_server_devops/traefik.toml:/etc/traefik/traefik.toml
+      - root/base_server_devops/traefik_dynamic.toml:/etc/traefik/traefik_dynamic.toml
       # - $PWD/acme.json:/acme.json
     networks:
       - frontend
