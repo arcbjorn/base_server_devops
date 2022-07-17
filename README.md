@@ -1,6 +1,5 @@
-##### Run Ansible
+##### Run playbook
 
 ```shell
-# example: `ansible-playbook install_docker.yaml --syntax-check`
-ansible-playbook <playbook> --syntax-check
+make run pb=<playbook>
 ```
