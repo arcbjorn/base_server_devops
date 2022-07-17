@@ -1,8 +1,0 @@
----
-- name: docker-cleanup
-  hosts: [webservers]
-  tasks:
-    - name: cleanup docker-compose
-      file:
-        path: docker-compose.yaml
-        state: absent
