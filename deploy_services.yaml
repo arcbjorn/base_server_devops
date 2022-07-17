@@ -1,14 +1,14 @@
-- name: Run with inline v2 compose
+- name: Deploy all services
   hosts: [webservers]
   gather_facts: no
   tasks:
-    - name: Tear down existing services
+    - name: Tear down all existing services
       community.docker.docker_compose:
         project_name: arclab
         project_src: "~/projects/arc_services/infra"
         state: absent
 
-    - name: Create and start services
+    - name: Create and start all services
       community.docker.docker_compose:
         project_name: arclab
         project_src: "~/projects/arc_services/infra"

@@ -1,8 +1,8 @@
-- name: Run with inline v2 compose
+- name: Stop all services
   hosts: [webservers]
   gather_facts: no
   tasks:
-    - name: Stop and clean-up all services
+    - name: Stop all services
       community.docker.docker_compose:
         project_name: arclab
         project_src: "~/projects/arc_services/infra"

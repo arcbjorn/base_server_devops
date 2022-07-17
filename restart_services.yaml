@@ -1,8 +1,8 @@
-- name: Run with inline v2 compose
+- name: Restart all services
   hosts: [webservers]
   gather_facts: no
   tasks:
-    - name: Restart services
+    - name: Restart all services
       community.docker.docker_compose:
         project_name: arclab
         project_src: "~/projects/arc_services/infra"
