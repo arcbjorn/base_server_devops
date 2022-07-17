@@ -1,0 +1,21 @@
+- name: Run with inline v2 compose
+  hosts: [webservers]
+  gather_facts: no
+  tasks:
+    - name: Tear down existing services
+      community.docker.docker_compose:
+        project_name: arclab
+        project_src: "~/projects/arc_services/infra"
+        state: absent
+
+    - name: Create and start services
+      community.docker.docker_compose:
+        project_name: arclab
+        project_src: "~/projects/arc_services/infra"
+        state: present
+        build: yes
+        nocache: yes
+      register: output
+
+    - ansible.builtin.debug:
+        var: output

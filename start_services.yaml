@@ -1,0 +1,17 @@
+- name: Run with inline v2 compose
+  hosts: [webservers]
+  gather_facts: no
+  tasks:
+    - name: Start services
+      community.docker.docker_compose:
+        project_name: arclab
+        project_src: "~/projects/arc_services/infra"
+        state: present
+        build: no
+      register: output
+
+    - ansible.builtin.debug:
+        var: output
+
+    - ansible.builtin.assert:
+        that: not output.changed

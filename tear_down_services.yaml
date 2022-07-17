@@ -1,0 +1,23 @@
+- name: Run with inline v2 compose
+  hosts: [webservers]
+  gather_facts: no
+  tasks:
+    - name: Stop and clean-up all services (Tear down)
+      community.docker.docker_compose:
+        project_name: arclab
+        project_src: "~/projects/arc_services/infra"
+        state: absent
+        remove_images: yes
+        remove_orphans: yes
+        remove_volumes: yes
+      register: output
+
+    - ansible.builtin.debug:
+        var: output
+
+    - ansible.builtin.assert:
+        that:
+          - "not caddy.arclab_caddy_1.state.running"
+          - "not postgres.arclab_postgres_1.state.running"
+          - "not blog.arclab_blog_1.state.running"
+          - "not ghost.arclab_ghost_1.state.running"
