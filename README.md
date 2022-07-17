@@ -1,4 +1,4 @@
-##### Run playbook
+##### Commands
 
 ```shell
 make run pb=<playbook>
