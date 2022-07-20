@@ -17,4 +17,4 @@ restart_services:
 	- ansible-playbook services/restart_services.yaml --syntax-check
 
 redeploy_service:
-	docker-compose up -d --force-recreate --build ${name}
+	- ansible-playbook services/redeploy_service.yaml --syntax-check --extra-vars "name=$(name)"
