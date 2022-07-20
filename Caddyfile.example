@@ -1,0 +1,9 @@
+www.example.com {
+    reverse_proxy ghost:2368 {
+        lb_try_duration 30s
+    }
+}
+
+example.com {
+    redir https://www.example.com{uri}
+}
