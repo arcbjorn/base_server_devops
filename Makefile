@@ -15,3 +15,6 @@ stop_services:
 
 restart_services:
 	- ansible-playbook restart_services.yaml --syntax-check
+
+redeploy_service:
+	docker-compose up -d --force-recreate --build ${name}
