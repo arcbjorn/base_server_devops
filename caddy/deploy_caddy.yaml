@@ -1,0 +1,15 @@
+- name: Deploy caddy
+  hosts: [webservers]
+  gather_facts: no
+  tasks:
+    - name: Create and start service
+      community.docker.docker_compose:
+        project_name: arcinfra
+        project_src: "~/devops/caddy"
+        state: present
+        build: yes
+        nocache: yes
+      register: output
+
+    - ansible.builtin.debug:
+        var: output
