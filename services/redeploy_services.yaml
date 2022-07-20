@@ -1,0 +1,15 @@
+- name: Redeploy service
+  hosts: [webservers]
+  gather_facts: no
+  tasks:
+    - name: Recreate and start service
+      community.docker.docker_compose:
+        project_name: arclab
+        project_src: "~/projects/arc_services/infra"
+        services:
+          - "{{ name }}"
+        state: present
+        build: yes
+        nocache: yes
+        recreate: always
+      register: output
