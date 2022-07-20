@@ -22,4 +22,9 @@ make stop_services
 
 ```shell
 make restart_services
+
+```
+
+```shell
+make redeploy_service name=<service_name>
 ```
